@@ -1,0 +1,31 @@
+.home {
+  background: rgba(104, 175, 104, 0.707);
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  margin: auto;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .home {
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    align-items: center;
+  }
+}

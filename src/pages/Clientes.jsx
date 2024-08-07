@@ -1,9 +1,9 @@
-import { getClientes } from "../api/clientes"
+import { deleteCliente, getClientes } from "../api/clientes"
 import {useEffect, useState} from "react"
 import Loader from "../components/Loader";
 import {Button, Table} from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import toast from "react-hot-toast";
 function Clientes(){
 // UseEffect para carregarClientes
 const [clientes, setClientes] = useState(null); // Este é um estado que guarda os clientes, por essa razão ele deve iniciar vazio para não dar problema.
@@ -19,6 +19,18 @@ function carregarClientes() {
 useEffect(() => {
   carregarClientes();
 }, []);
+
+// Trabalhando com a função de deletarCliente
+function deletarCliente(id) {
+  const deletar = confirm("Tem certeza que deseja excluir?");
+  if (deletar){
+    deleteCliente(id)
+    .then((resposta) =>{
+      toast.success(resposta.message);
+      carregarClientes();
+    })
+  }
+}
 
 
 //Lógica: 

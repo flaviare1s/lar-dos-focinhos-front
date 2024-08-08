@@ -1,23 +1,25 @@
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addReserva } from "../api/reservas"; 
-import {getClientes} from "../api/clientes";
+import { addReserva } from "../api/reservas";
+import { getClientes } from "../api/clientes";
 import { getPets } from "../api/pets";
 import toast from "react-hot-toast";
 
 function NovaReserva() {
   const [clientes, setClientes] = useState([]);
   const [pets, setPets] = useState([]);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [petsFiltrados, setPetsFiltrados] = useState([]);
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const navigate = useNavigate();
 
+  // Carrega clientes e pets
   useEffect(() => {
     async function carregarDados() {
       try {
-        const clientesData = await getClientes(); // Obtenha a lista de clientes
-        const petsData = await getPets(); // Obtenha a lista de pets
+        const clientesData = await getClientes();
+        const petsData = await getPets();
         setClientes(clientesData);
         setPets(petsData);
       } catch (error) {
@@ -26,6 +28,17 @@ function NovaReserva() {
     }
     carregarDados();
   }, []);
+
+  // Filtra pets com base no cliente selecionado
+  useEffect(() => {
+    const clienteId = watch("clienteId");
+    if (clienteId) {
+      const petsDoCliente = pets.filter(pet => pet.clienteId === parseInt(clienteId, 10));
+      setPetsFiltrados(petsDoCliente);
+    } else {
+      setPetsFiltrados([]);
+    }
+  }, [watch("clienteId"), pets]);
 
   function criarReserva(data) {
     addReserva(data)
@@ -99,7 +112,7 @@ function NovaReserva() {
           <Form.Select
             id="clienteId"
             className="form-control mt-2"
-            {...register("clienteId", { required: true, valueAsNumber: true })}
+            {...register("clienteId", { required: true })}
           >
             <option value="">Selecione um cliente</option>
             {clientes.map((cliente) => (
@@ -117,10 +130,10 @@ function NovaReserva() {
           <Form.Select
             id="petId"
             className="form-control mt-2"
-            {...register("petId", { required: true, valueAsNumber: true })}
+            {...register("petId", { required: true })}
           >
             <option value="">Selecione um pet</option>
-            {pets.map((pet) => (
+            {petsFiltrados.map((pet) => (
               <option key={pet.id} value={pet.id}>
                 {pet.nome}
               </option>

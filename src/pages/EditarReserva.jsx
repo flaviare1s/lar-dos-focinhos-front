@@ -86,12 +86,15 @@ function EditarReserva() {
         </div>
         <div>
           <label htmlFor="tipoAcomodacao">Tipo de Acomodação</label>
-          <input
-            type="text"
+          <select
             id="tipoAcomodacao"
             className="form-control"
             {...register("tipoAcomodacao", { required: true })}
-          />
+          >
+            <option value="">Selecione o tipo de acomodação</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Standard">Standard</option>
+          </select>
           {errors.tipoAcomodacao && (
             <small className="text-danger">O tipo de acomodação é obrigatório!</small>
           )}

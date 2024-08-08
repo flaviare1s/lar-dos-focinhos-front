@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Clientes from "./pages/Clientes";
@@ -15,7 +15,7 @@ import EditarReserva from "./pages/EditarReserva";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,7 +29,7 @@ function App() {
           <Route path="/reservas/novo" element={<NovaReserva />} />
           <Route path="/reservas/editar/:id" element={<EditarReserva />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       <Toaster position="bottom-right" />
     </>
   );

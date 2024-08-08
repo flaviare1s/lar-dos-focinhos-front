@@ -38,8 +38,8 @@ function Pets() {
           <thead>
             <tr>
               <th>Nome</th>
-              <th>Raça</th>
-              <th>Data de Nascimento</th>
+              <th className="d-none d-md-table-cell">Raça</th>
+              <th className="d-none d-sm-table-cell">Data de Nascimento</th>
               <th>Proprietário</th>
             </tr>
           </thead>
@@ -48,8 +48,8 @@ function Pets() {
               return (
                 <tr key={pet.id}>
                   <td>{pet.nome}</td>
-                  <td>{pet.raca}</td>
-                  <td>{pet.dataNasc}</td>
+                  <td className="d-none d-md-table-cell">{pet.raca}</td>
+                  <td className="d-none d-sm-table-cell">{pet.dataNasc}</td>
                   <td>{pet.cliente.nomeCliente}</td>
                   <td>
                     <ButtonGroup>

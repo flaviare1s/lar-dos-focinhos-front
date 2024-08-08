@@ -88,7 +88,7 @@ function EditarCliente() {
           )}
         </div>
 
-      <Button className="mt-3" type="submit">
+        <Button variant="dark" className="mt-3" type="submit">
           Atualizar
         </Button>
         

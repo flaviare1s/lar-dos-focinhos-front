@@ -64,7 +64,7 @@ const NovoCliente = () => {
             <small className="text-danger">O telefone é inválido!</small>
           )}
         </div>
-        <Button className="mt-3" type="submit">
+        <Button className="mt-3" variant="dark" type="submit">
           Cadastrar
         </Button>
       </form>

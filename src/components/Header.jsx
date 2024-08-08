@@ -14,7 +14,7 @@ const Header = () => {
             <Nav className="ms-auto">
               <Link className="nav-link text-white" to='/clientes'>Clientes</Link>
               <Link className="nav-link text-white" to='/pets'>Pets</Link>
-              <Link className="nav-link text-white" to='/reserva'>Reserva</Link>
+              <Link className="nav-link text-white" to='/reservas'>Reservas</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

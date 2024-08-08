@@ -1,7 +1,7 @@
 import { deleteCliente, getClientes } from "../api/clientes"
 import {useEffect, useState} from "react"
 import Loader from "../components/Loader";
-import {Button, Table} from "react-bootstrap";
+import {Button, Table, ButtonGroup} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 function Clientes(){
@@ -41,17 +41,14 @@ function deletarCliente(id) {
 return (
   <main className="mt-4 container">
     <h1>Clientes</h1>
-    <Button as={Link} to="/clientes/novo">
-      Adicionar Cliente
-    </Button>
     <hr />
     {clientes ? (
       <Table>
         <thead>
           <tr>
             <th>Nome</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
+            <th className="d-none d-md-table-cell"> E-mail</th>
+            <th className="d-none d-sm-table-cell" >Telefone</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -60,11 +57,16 @@ return (
             return (
               <tr key={cliente.id}>
                 <td>{cliente.nome}</td>
-                <td>{cliente.email}</td>
-                <td>{cliente.telefone}</td>
+                <td className="d-none d-md-table-cell">{cliente.email}</td>
+                <td  className="d-none d-sm-table-cell" >{cliente.telefone}</td>
                 <td>
-                  <Button variant="danger" size="sm" onClick={() => deletarCliente(cliente.id)}>Excluir</Button>
-                  <Button size="sm" as={Link} to={`/clientes/editar/${cliente.id}`}>Editar</Button>
+                <ButtonGroup>
+                      <Button variant="outline-dark" as={Link} to={`/clientes/editar/${cliente.id}`}>
+                        <span className="material-symbols-outlined">edit</span></Button>
+                        <Button variant="outline-success">Reservas</Button>
+                      <Button variant="outline-danger"  onClick={() => deletarCliente(cliente.id)}>
+                      <span className="material-symbols-outlined">delete</span></Button>
+                  </ButtonGroup>
                 </td>
               </tr>
             );
@@ -74,6 +76,10 @@ return (
     ) : (
       <Loader />
     )}
+        <Button as={Link} variant="dark" to="/clientes/novo">
+      Adicionar Cliente
+    </Button>
+
   </main>
 );
 }

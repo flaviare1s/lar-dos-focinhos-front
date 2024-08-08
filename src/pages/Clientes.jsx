@@ -63,7 +63,7 @@ return (
                 <ButtonGroup>
                       <Button variant="outline-dark" as={Link} to={`/clientes/editar/${cliente.id}`}>
                         <span className="material-symbols-outlined">edit</span></Button>
-                        <Button variant="outline-success">Reservas</Button>
+                        <Button variant="outline-success" as={Link} to={`/clientes/${cliente.id}/reservas`} >Reservas</Button>
                       <Button variant="outline-danger"  onClick={() => deletarCliente(cliente.id)}>
                       <span className="material-symbols-outlined">delete</span></Button>
                   </ButtonGroup>

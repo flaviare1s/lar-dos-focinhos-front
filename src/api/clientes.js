@@ -38,3 +38,8 @@ export async function updateCliente(id, data){
     return response.data; // vou retornar com a mensagem que deu certo o update
 }
 
+// carregar Reserva de Cliente Por id:
+export async function getClienteReservas(id){
+    const response = await axios.get(`http://localhost:3001/clientes/${id}/reservas`);
+    return response.data;
+}

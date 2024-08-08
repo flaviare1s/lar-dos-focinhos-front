@@ -42,6 +42,7 @@ Este projeto foi criado como uma atividade avaliativa, realizada em equipe, no b
 ### Componentes
 
 - **Header**: Componente de cabeçalho com navegação.
+- **Footer**: Footer do site.
 - **Loader**: Componente de loader.
 
 

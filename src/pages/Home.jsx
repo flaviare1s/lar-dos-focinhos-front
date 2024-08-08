@@ -8,8 +8,8 @@ const Home = () => {
         <img className="banner-img" src={banner} alt="banner" />
       </picture>
       <div className='content'>
-        <h1>Bem vindo ao Lar dos Focinhos!</h1>
-        <h2>Um hotel bom pra cachorro!</h2>
+        <h1 className='text-center'>Bem vindo ao Lar dos Focinhos!</h1>
+        <h2 className='text-center'>Um hotel bom pra cachorro!</h2>
         <p>No Lar dos Focinhos, oferecemos um ambiente seguro e acolhedor para o seu pet. Nossos serviços incluem:</p>
         <ul>
           <li><strong>Hospedagem Confortável:</strong> Quartos espaçosos e confortáveis para que seu pet se sinta em casa.</li>

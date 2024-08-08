@@ -12,6 +12,7 @@ import Reservas from "./pages/Reservas";
 import NovaReserva from "./pages/NovaReserva";
 import EditarReserva from "./pages/EditarReserva";
 import Footer from "./components/Footer";
+import ReservaCliente from "./pages/ReservaCliente";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/reservas" element={<Reservas />} />
             <Route path="/reservas/novo" element={<NovaReserva />} />
             <Route path="/reservas/editar/:id" element={<EditarReserva />} />
+            <Route path="/clientes/:id/reservas" element={<ReservaCliente />} />
           </Routes>
         </div>
         <Footer />

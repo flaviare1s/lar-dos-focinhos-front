@@ -39,6 +39,7 @@ Este projeto foi criado como uma atividade avaliativa, realizada em equipe, no b
 - **EditarCliente**: Formulário para editar cliente.
 - **EditarPet**: Formulário para editar pet.
 - **EditarReserva**: Formulário para editar reserva.
+-- **ReservaCliente**: Lista as reservas de um cliente específico.
 ### Componentes
 
 - **Header**: Componente de cabeçalho com navegação.
